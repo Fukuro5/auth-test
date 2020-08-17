@@ -1,7 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import st from './styles.scss'
 
-export default function Button() {
-  return null;
+const Button = props => {
+  return (
+    <button type={props.type} className={st.submit}>{props.name}</button>
+  )
 }
+
+export default Button
 

@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import st from './styles.scss'
 
-export default function ProgressBar({ step, count }) {
-  return null;
+const ProgressBar = props => {
+  return (
+    <progress className={st.progressBar} value={props.value} max="100"></progress>
+  )
 }
 
-ProgressBar.propTypes = {
-  step: PropTypes.number,
-  count: PropTypes.number,
-};
+export default ProgressBar

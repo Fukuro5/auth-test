@@ -8,6 +8,7 @@
     font-family: Roboto, sans-serif;
     font-size: 14px;
     height: 100%;
+    color: #5c5b66;
   }
 
   *,
@@ -21,5 +22,35 @@
     border: none;
     outline: 0;
     padding: 0;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+  }
+
+  .head {
+    color: #59a2e7;
+    font-size: 19px;
+    margin: 20px;
+    text-align: center;
+  }
+
+  .auth-window {
+    width: 350px;
+    height: 450px;
+    border: 1px solid #c4c4c4;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }

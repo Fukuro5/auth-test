@@ -1,0 +1,35 @@
+.radio-item {
+  display: inline-block;
+
+  input {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    cursor: pointer;
+    width: 104px;
+    line-height: 40px;
+    border: 1px solid #c4c4c4;
+    border-right: none;
+    user-select: none;
+  }
+}
+
+.radio-item:first-child label {
+  border-radius: 4px 0 0 4px;
+}
+
+// .radio-item:first-child label {
+//   border-radius: 4px 0 0 4px;
+// }
+
+.radio-item:last-child label {
+  border-radius: 0 4px 4px 0;
+  border-right: 1px solid #c4c4c4;
+}
+
+.radio-item input:checked + label {
+  background: #4a90e2;
+  color: #fff;
+}

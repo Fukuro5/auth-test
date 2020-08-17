@@ -1,10 +1,31 @@
-import React from 'react'
-import st from './styles.scss'
+import React from 'react';
+import PropsTypes from 'prop-types';
+import st from './styles.scss';
 
-const InputBox = props => {
+const InputBox = (props) => {
+  const {
+    type,
+    placeholder,
+    min,
+    max,
+  } = props;
+
   return (
-    <input className={st.dateBirth} type={props.type} placeholder={props.placeholder} min={props.min} max={props.max} />
-  )
-}
+    <input
+      className={st.dateBirth}
+      type={type}
+      placeholder={placeholder}
+      min={min}
+      max={max}
+    />
+  );
+};
 
-export default InputBox
+InputBox.propTypes = {
+  type: PropsTypes.string,
+  placeholder: PropsTypes.string,
+  min: PropsTypes.number,
+  max: PropsTypes.number,
+};
+
+export default InputBox;

@@ -1,13 +1,17 @@
-import React from 'react'
-import st from './styles.scss'
+import React from 'react';
+import PropsTypes from 'prop-types';
+import st from './styles.scss';
 
-const RadioButton = props => {
-  return (
-    <div className={st.radioItem}>
-      <input id={props.id} type="radio" name="radio" />
-      <label htmlFor={props.id}>{props.label}</label>
-    </div>
-  )
-}
+const RadioButton = ({ id, label }) => (
+  <div className={st.radioItem}>
+    <input id={id} type="radio" name="radio" />
+    <label htmlFor={id}>{label}</label>
+  </div>
+);
 
-export default RadioButton
+RadioButton.propTypes = {
+  id: PropsTypes.number,
+  label: PropsTypes.string,
+};
+
+export default RadioButton;

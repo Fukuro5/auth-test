@@ -1,11 +1,14 @@
-import React from 'react'
-import st from './styles.scss'
+import React from 'react';
+import PropsTypes from 'prop-types';
+import st from './styles.scss';
 
-const Button = props => {
-  return (
-    <button type={props.type} className={st.submit}>{props.name}</button>
-  )
-}
+const Button = ({ type, children }) => (
+  <button type={type} className={st.submit}>{children}</button>
+);
 
-export default Button
+Button.propTypes = {
+  type: PropsTypes.string,
+  children: PropsTypes.node.isRequired,
+};
 
+export default Button;

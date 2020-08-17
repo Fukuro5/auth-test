@@ -1,11 +1,8 @@
-import React from 'react'
-import Select from 'react-select'
+import React from 'react';
+import Select from 'react-select';
 
-const SelectOptions = props => {
+const SelectOptions = () => (
+  <Select />
+);
 
-  return (
-    <Select />
-  )
-}
-
-export default SelectOptions
+export default SelectOptions;

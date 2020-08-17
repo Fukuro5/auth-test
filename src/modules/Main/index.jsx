@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
-import { FirstStep, SecondStep } from './components'
-import st from './styles.scss'
+import React, { useState } from 'react';
+import { FirstStep, SecondStep } from './components';
+import st from './styles.scss';
 
-const Main = props => {
-  const [step, setStep] = useState(1)
-  
-  if(step == 1) {
+const Main = () => {
+  const [step] = useState(1);
+
+  if (step === 1) {
     return (
       <FirstStep />
-    )
-  } else if(step == 2) {
+    );
+  } if (step === 2) {
     return (
       <SecondStep />
-    )
-  }
-}
+    );
+  } return null;
+};
 
-export default Main
+export default Main;

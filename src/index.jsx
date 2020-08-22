@@ -10,13 +10,11 @@ import Routes from '@/routes';
 import '@/assets/styles/main.scss';
 
 const Root = (props) => (
-  <StrictMode>
-    <Provider store={store}>
-      <Router history={history}>
-        { props.children }
-      </Router>
-    </Provider>
-  </StrictMode>
+  <Provider store={store}>
+    <Router history={history}>
+      { props.children }
+    </Router>
+  </Provider>
 );
 
 Root.propTypes = {

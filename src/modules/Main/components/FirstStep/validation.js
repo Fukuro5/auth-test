@@ -18,7 +18,7 @@ export default (values) => {
 
   if (!values.confirm) {
     errors.confirm = 'Confirm is required';
-  } else if (values.confirm === values.password) {
+  } else if (values.confirm !== values.password) {
     errors.confirm = 'Passwords missmatch';
   }
 

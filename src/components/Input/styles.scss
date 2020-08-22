@@ -1,3 +1,5 @@
+@import '/src/assets/styles/colors.scss';
+
 .input-field {
   margin-bottom: 40px;
 }
@@ -6,8 +8,8 @@
   width: 80%;
   margin: 0 10%;
   border: 0;
-  border-bottom: 1px solid #c4c4c4;
-  color: #5c5b66;
+  border-bottom: 1px solid $color-border-light-grey;
+  color: $color-text-grey;
   &:focus {
     outline: none;
   }
@@ -21,5 +23,5 @@
 .error {
   margin: 30px 0 20px 10%;
   text-transform: uppercase;
-  color: #f00;
+  color: $color-text-error;
 }

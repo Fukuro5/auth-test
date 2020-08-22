@@ -1,0 +1,16 @@
+@import '/src/assets/styles/colors.scss';
+
+.check {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.button {
+  border: 1px solid $color-background;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  text-align: center;
+  border-radius: 5px;
+}

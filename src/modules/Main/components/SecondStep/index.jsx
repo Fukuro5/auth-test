@@ -1,47 +1,73 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   Formik, Form,
 } from 'formik';
+import { useDispatch } from 'react-redux';
+import { stepIncrement, stepDecrement } from '@/redux/actions/steps';
+import { addUserData } from '@/redux/actions/userData';
 import {
-  Button, RadioButton, ProgressBar, SelectOptions, InputBox,
+  Button, Switch, ProgressBar, SelectOptions, DateField,
 } from '@/components';
+import validation from './validation';
 import st from './styles.scss';
 
-const SecondStep = () => (
-  <section className="container">
-    <Formik>
-      <Form className="auth-window">
-        <div>
-          <h1 className="head">Signup</h1>
-          <ProgressBar value="66" />
-        </div>
-        <div className={st.cont}>
-        <div className={st.inputsWrapper}>
-          <h2 className={st.headText}>DATE OF BIRTH</h2>
-          <InputBox type="number" placeholder="DD" min="1" max="31" />
-          <InputBox type="number" placeholder="MM" min="1" max="12" />
-          <InputBox type="number" placeholder="YYYY" min="1950" max="2020" />
-        </div>
-        <div className={st.radioGroup}>
-          <h2 className={st.headText}>GENDER</h2>
+const SecondStep = () => {
+  const dispatch = useDispatch();
+  const back = useCallback(() => {
+    dispatch(stepDecrement());
+  }, [dispatch]);
+
+  const next = useCallback((values) => {
+    const date = new Date(values.year, values.month, values.day);
+
+    dispatch(addUserData({
+      gender: values.gender,
+      dateBirth: date.valueOf(),
+      hearAboutIs: values.hearAboutIs,
+    }));
+    dispatch(stepIncrement());
+  }, [dispatch]);
+
+  return (
+    <section className="container">
+      <Formik
+        initialValues={{
+          gender: '',
+          day: '',
+          month: '',
+          year: '',
+          hearAboutIs: '',
+        }}
+        onSubmit={next}
+        validate={validation}
+      >
+        <Form className="auth-window">
           <div>
-            <RadioButton id="radio1" label="MALE" />
-            <RadioButton id="radio2" label="FEMALE" />
-            <RadioButton id="radio3" label="UNSPECIFIED" />
+            <h1 className="head">Signup</h1>
+            <ProgressBar value={66} />
           </div>
-        </div>
-        <div className={st.select}>
-          <h2 className={st.headText}>Where did you hear about is?</h2>
-          <SelectOptions />
-        </div>
-        </div>
-        <div className={st.buttons}>
-          <Button type="submit" name="Back" />
-          <Button type="submit" name="Next" />
-        </div>
-      </Form>
-    </Formik>
-  </section>
-);
+          <div className={st.cont}>
+          <div className={st.inputsWrapper}>
+            <DateField
+              head="DATE OF BIRTH"
+            />
+          </div>
+          <div className={st.radioGroup}>
+            <Switch id="gender" name="gender" labels={['MALE', 'FEMALE', 'UNSPECIFIED']} head="GENDER" />
+          </div>
+          <div className={st.select}>
+            <h2 className="head-text">Where did you hear about is?</h2>
+            <SelectOptions name="hearAboutIs" />
+          </div>
+          </div>
+          <div className={st.buttons}>
+            <Button type="button" onClick={back}>Back</Button>
+            <Button type="submit">Next</Button>
+          </div>
+        </Form>
+      </Formik>
+    </section>
+  );
+};
 
 export default SecondStep;

@@ -1,15 +1,17 @@
+@import '/src/assets/styles/colors.scss';
+
 .progress-bar {
   height: 10px;
   width: 100%;
-  border-top: 1px solid #c4c4c4;
-  border-bottom: 1px solid #c4c4c4;
+  border-top: 1px solid $color-border-light-grey;
+  border-bottom: 1px solid $color-border-light-grey;
   margin-bottom: 10px;
 }
 
 .progress-bar::-webkit-progress-bar {
-  background-color: #fff;
+  background-color: $color-white;
 }
 
 .progress-bar::-webkit-progress-value {
-  background-color: #4a90e2;
+  background-color: $color-background;
 }

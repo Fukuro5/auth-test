@@ -1,9 +1,4 @@
-.head-text {
-  display: block;
-  text-align: center;
-  color: #5c5b5c;
-  margin: 20px 20px 10px 20px;
-}
+@import '/src/assets/styles/colors.scss';
 
 .radio-group {
   display: inline-block;
@@ -27,5 +22,5 @@
 .buttons {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #c4c4c4;
+  border-top: 1px solid $color-border-light-grey;
 }

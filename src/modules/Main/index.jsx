@@ -1,19 +1,29 @@
-import React, { useState } from 'react';
-import { FirstStep, SecondStep } from './components';
-import st from './styles.scss';
+import React, { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { stepsSelector } from '@/redux/selectors/steps';
+import { FirstStep, SecondStep, ThirdStep } from './components';
 
 const Main = () => {
-  const [step] = useState(1);
+  const step = useSelector(stepsSelector);
 
-  if (step === 1) {
-    return (
-      <FirstStep />
-    );
-  } if (step === 2) {
-    return (
-      <SecondStep />
-    );
-  } return null;
+  return useMemo(() => {
+    if (step === 1) {
+      return (
+        <FirstStep />
+      );
+    }
+    if (step === 2) {
+      return (
+        <SecondStep />
+      );
+    }
+    if (step === 3) {
+      return (
+        <ThirdStep />
+      );
+    }
+    return null;
+  }, [step]);
 };
 
 export default Main;

@@ -1,3 +1,5 @@
+@import '/src/assets/styles/colors.scss';
+
 .radio-item {
   display: inline-block;
 
@@ -10,26 +12,27 @@
     cursor: pointer;
     width: 104px;
     line-height: 40px;
-    border: 1px solid #c4c4c4;
+    border: 1px solid $color-border-light-grey;
     border-right: none;
     user-select: none;
   }
 }
 
-.radio-item:first-child label {
+.radio-item:nth-child(2) label {
   border-radius: 4px 0 0 4px;
 }
 
-// .radio-item:first-child label {
-//   border-radius: 4px 0 0 4px;
-// }
-
 .radio-item:last-child label {
   border-radius: 0 4px 4px 0;
-  border-right: 1px solid #c4c4c4;
+  border-right: 1px solid $color-border-light-grey;
 }
 
 .radio-item input:checked + label {
-  background: #4a90e2;
-  color: #fff;
+  background: $color-background;
+  color: $color-white;
+}
+
+.error {
+  color: $color-text-error;
+  margin: 20px 20px 10px 20px;
 }

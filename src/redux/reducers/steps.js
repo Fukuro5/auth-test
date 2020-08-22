@@ -1,22 +1,14 @@
 import { stepIncrement, stepDecrement } from '@/redux/actions/steps';
 
-const initState = {
-  step: 2,
-};
+const initState = 1;
 
 export default (state = initState, { type }) => {
   switch (type) {
     case `${stepIncrement}`: {
-      return {
-        ...state,
-        step: state.step + 1,
-      };
+      return state + 1;
     }
     case `${stepDecrement}`: {
-      return {
-        ...state,
-        step: state.step - 1,
-      };
+      return state - 1;
     }
     default: return state;
   }

@@ -25,6 +25,7 @@ const FirstStep = () => {
         initialValues={{
           email: '',
           password: '',
+          confirm: '',
         }}
         onSubmit={handleSubmit}
         validate={validation}

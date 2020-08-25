@@ -11,23 +11,29 @@ const InputBox = (props) => {
     min,
     max,
   } = props;
-  const [field] = useField(name);
-
+  const [field, meta, helpers] = useField(name);
+  const currentDate = new Date();
+  // console.log(currentDate.getFullYear());
   return (
-    <>
-      <input
-        {...field}
-        onChange={(event) => {
-          if (event.target.value < min) event.target.value = min;
-          if (event.target.value > max) event.target.value = max;
-
-          field.onChange(event);
-        }}
-        className={st.dateBirth}
-        type={type}
-        placeholder={placeholder}
-      />
-    </>
+    <input
+      {...field}
+      onChange={(event) => {
+        if (event.target.value == 0) helpers.setValue('');
+        else if (event.target.value < min) helpers.setValue(min);
+        else if (event.target.value > max) helpers.setValue(max);
+        else helpers.setValue(event.target.value);
+      }}
+      onBlur={(event) => {
+        if (event.target.value < 10) {
+          if (event.target.value[0] != 0) {
+            helpers.setValue(`0${event.target.value}`);
+          }
+        }
+      }}
+      className={st.dateBirth}
+      type={type}
+      placeholder={placeholder}
+    />
   );
 };
 

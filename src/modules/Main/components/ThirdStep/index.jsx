@@ -1,8 +1,8 @@
-import React, { useCallback, useMemo } from 'react';
+import React from 'react';
 import {
   Formik, Form,
 } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   Button, ProgressBar,
 } from '@/components';
@@ -13,7 +13,7 @@ import st from './styles.scss';
 const ThirdStep = () => {
   const userData = useSelector(userDataSelector);
   const onClick = () => {
-    console.log(JSON.stringify(userData.data));
+    console.log(JSON.stringify(userData));
   };
 
   return (

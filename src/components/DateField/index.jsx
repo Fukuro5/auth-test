@@ -1,7 +1,7 @@
 import React from 'react';
 import { InputBox } from '@/components';
 import PropsTypes from 'prop-types';
-import { useField, useFormikContext } from 'formik';
+import { useField } from 'formik';
 import st from './styles.scss';
 
 const Date = (props) => {
@@ -9,7 +9,7 @@ const Date = (props) => {
   const [dField, dMeta] = useField('day');
   const [mField, mMeta] = useField('month');
   const [yField, yMeta] = useField('year');
-  const min = [1, 1, 1900];
+  const min = [1, 1];
   const max = [31, 12, 2020];
   const names = ['day', 'month', 'year'];
   const placeholders = ['DD', 'MM', 'YYYY'];

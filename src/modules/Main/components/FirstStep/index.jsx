@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
 import {
-  Formik, Form,
+  Formik, Form, useField,
 } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Input, ProgressBar } from '@/components';
 import { stepIncrement } from '@/redux/actions/steps';
 import { addUserData } from '@/redux/actions/userData';
+import { userDataSelector } from '@/redux/selectors/userData';
 import validation from './validation';
 import st from './styles.scss';
 
@@ -18,14 +19,15 @@ const FirstStep = () => {
     }));
     dispatch(stepIncrement());
   }, [dispatch]);
+  const userData = useSelector(userDataSelector);
 
   return (
     <section className="container">
       <Formik
         initialValues={{
-          email: '',
-          password: '',
-          confirm: '',
+          email: userData.email || '',
+          password: userData.password || '',
+          confirm: userData.password || '',
         }}
         onSubmit={handleSubmit}
         validate={validation}
